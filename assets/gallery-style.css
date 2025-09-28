@@ -126,6 +126,109 @@ h1, h2, h3, h4, h5, h6, p{
     padding-right: 200px;
 }
 
+.layout-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 40px;
+    margin: 100px 10%;
+}
+
+.sidebar {
+    background: #f5f5f5;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 15px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #699635;
+    font-weight: 600;
+}
+
+.card-section {
+    margin: 150px 0;
+    text-align: center;
+}
+
+.card-title {
+    font-family: Varta, sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+}
+
+.card-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.card {
+    flex: 1;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card h2 {
+    margin: 20px 0 10px;
+    font-size: 24px;
+}
+
+.card p {
+    font-size: 18px;
+    margin: 0 20px 20px;
+    flex-grow: 1;
+    color: #555;
+}
+
+.card-btn {
+    margin: 20px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+    background: #699635;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.card-btn:hover {
+    background: #7ab13c;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
 .foodgallery {
     margin: 200px 10%;
 }
@@ -147,10 +250,30 @@ h1, h2, h3, h4, h5, h6, p{
 }
 
 .foodcard {
+    position: relative;
     overflow: hidden;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.foodcard::after {
+    content: "Healthyeats";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+
+.foodcard:hover::after {
+    opacity: 1;
 }
 
 .foodcard img {
@@ -172,8 +295,10 @@ h1, h2, h3, h4, h5, h6, p{
 .consultation_inner {
     margin-top: 250px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    gap: 40px;
+    text-align: center;
 }
 
 .consultation-search {
@@ -226,6 +351,7 @@ h1, h2, h3, h4, h5, h6, p{
     line-height: 44px;
     color: rgba(0, 0, 0, 0.5);
 }
+
 .footer {
     margin-top: 200px;
 }
