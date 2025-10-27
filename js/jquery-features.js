@@ -138,11 +138,7 @@ $(function () {
         setTimeout(() => $t.addClass("show"));
         setTimeout(() => { $t.removeClass("show"); setTimeout(() => $t.remove(), 300); }, timeout);
     }
-    // пример: toast("Item added to cart");
 
-    /* =========================
-       Task 8: Copy to clipboard
-    ========================== */
     $("#copyBtn").on("click", async function () {
         try {
             const text = $("#couponText").text().trim();
@@ -156,9 +152,7 @@ $(function () {
         }
     });
 
-    /* =========================
-       Task 9: Lazy loading images
-    ========================== */
+
     const $lazyImgs = $("img.lazy");
     const loadIfVisible = () => {
         const winTop = $(window).scrollTop();
