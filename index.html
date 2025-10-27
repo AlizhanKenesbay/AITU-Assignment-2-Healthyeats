@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>HealthyEats</title>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" href="main-style.css" />
+    <link rel="stylesheet" href="about-style.css" />
+    <link rel="stylesheet" href="contacts-style.css" />
+    <link rel="stylesheet" href="delivery-style.css" />
+    <link rel="stylesheet" href="FAQ-style.css" />
+    <link rel="stylesheet" href="gallery-style.css" />
+    <link rel="stylesheet" href="menu-style.css" />
+    <link rel="stylesheet" href="team-style.css" />
+</head>
+<body>
+
+
+<div id="scrollProgress"></div>
+
+<header class="he-header">
+    <h1>HealthyEats</h1>
+
+
+    <div class="search-wrap">
+        <input id="searchBar" type="text" placeholder="Search dishes, posts, tips..." autocomplete="off"/>
+        <ul id="searchSuggest" class="suggest-list"></ul>
+    </div>
+
+    <nav class="he-nav">
+
+        <a href="#">Main</a>
+        <a href="#">Menu</a>
+        <a href="#">Gallery</a>
+        <a href="#">FAQ</a>
+        <a href="#">Delivery</a>
+        <a href="#">Contacts</a>
+        <a href="#">Team</a>
+    </nav>
+</header>
+
+<main class="he-container">
+
+
+    <section>
+        <h2>Popular Healthy Picks</h2>
+        <ul id="recipeList" class="cards">
+            <li class="searchable">Apple Smoothie with Almond Milk</li>
+            <li class="searchable">Banana Oatmeal with Honey</li>
+            <li class="searchable">Carrot & Chickpea Salad</li>
+            <li class="searchable">Avocado Toast with Egg</li>
+            <li class="searchable">Greek Yogurt Bowl with Berries</li>
+            <li class="searchable">Quinoa Veggie Bowl</li>
+            <li class="searchable">Green Detox Juice</li>
+        </ul>
+    </section>
+
+    <!-- Счётчики (Task 5) -->
+    <section class="stats">
+        <div class="stat">
+            <div class="stat-num" data-count="1200">0</div>
+            <div class="stat-label">Happy Users</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num" data-count="350">0</div>
+            <div class="stat-label">Daily Orders</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num" data-count="98">0</div>
+            <div class="stat-label">Healthy Recipes</div>
+        </div>
+    </section>
+
+    <!-- Форма с лоадером (Task 6) -->
+    <section class="demo-form">
+        <h2>Subscribe for weekly tips</h2>
+        <form id="demoForm">
+            <input type="email" id="emailInput" placeholder="your@email.com" required />
+            <button id="submitBtn" type="submit">
+                <span class="btn-text">Submit</span>
+                <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+        </form>
+    </section>
+
+    <!-- Копирование в буфер (Task 8) -->
+    <section class="copy-box">
+        <h2>Coupon</h2>
+        <p id="couponText">HEALTHY10</p>
+        <button id="copyBtn" type="button">Copy</button>
+        <span id="copyTooltip" class="tooltip" role="status" aria-live="polite"></span>
+    </section>
+
+            <img class="lazy" src="img/gallery/gallery-home.png" data-src="img/gallery/food1.jpg" alt="Dish 1"/>
+            <img class="lazy" src="img/gallery/gallery-home.png" data-src="img/gallery/food2.jpg" alt="Dish 2"/>
+            <img class="lazy" src="img/gallery/gallery-home.png" data-src="img/gallery/food3.jpg" alt="Dish 3"/>
+            <img class="lazy" src="img/gallery/gallery-home.png" data-src="img/gallery/food4.jpg" alt="Dish 4"/>
+            <img class="lazy" src="img/gallery/gallery-home.png" data-src="img/gallery/food5.jpg" alt="Dish 5"/>
+            <img class="lazy" src="img/gallery/gallery-home.png" data-src="img/gallery/food6.jpg" alt="Dish 6"/>
+            <img class="lazy" src="img/gallery/gallery-home.png" data-src="img/gallery/food7.jpg" alt="Dish 7"/>
+            <img class="lazy" src="img/gallery/gallery-home.png" data-src="img/gallery/food8.jpg" alt="Dish 8"/>
+            <img class="lazy" src="img/gallery/gallery-home.png" data-src="img/gallery/food9.jpg" alt="Dish 9"/>
+        </div>
+    </section>
+
+</main>
+
+
+<div id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+
+<script src="js/changeBackground.js"></script>
+<script src="js/formValidation.js"></script>
+<script src="js/accordion.js"></script>
+<script src="js/jquery-features.js"></script>
+<script src="js/popup.js"></script>
+
+</body>
+</html>
