@@ -1,10 +1,8 @@
-// Все фичи Assignment 7 на jQuery
+
 $(function () {
     console.log("jQuery is ready!");
 
-    /* =========================
-       Task 4: Scroll progress
-    ========================== */
+
     const $progress = $("#scrollProgress");
     const updateProgress = () => {
         const scrollTop = $(window).scrollTop();
@@ -15,19 +13,17 @@ $(function () {
     updateProgress();
     $(window).on("scroll resize", updateProgress);
 
-    /* =========================================
-       Tasks 1–3: Live filter + autocomplete + highlight
-    ========================================== */
+
     const $search = $("#searchBar");
     const $listItems = $("#recipeList .searchable");
     const $suggest = $("#searchSuggest");
 
-    // Источник для подсказок (можешь заменить на актуальные названия блюд/постов)
+
     const SUGGESTIONS = $listItems
         .map(function () { return $(this).text().trim(); })
         .get();
 
-    // Функция подсветки совпадений
+
     function highlightTerm($elements, term) {
         const t = term.trim();
         $elements.each(function () {
@@ -45,20 +41,20 @@ $(function () {
         });
     }
 
-    // Обновление live-фильтра и подсказок
+
     function handleSearch() {
         const q = $search.val().toLowerCase();
 
-        // Live фильтр
+
         $listItems.each(function () {
             const $li = $(this);
             $li.toggle($li.text().toLowerCase().indexOf(q) > -1);
         });
 
-        // Подсветка
+
         highlightTerm($listItems, q);
 
-        // Подсказки
+
         $suggest.empty();
         if (!q) return;
         const matches = SUGGESTIONS.filter(s => s.toLowerCase().includes(q)).slice(0, 6);
@@ -69,7 +65,7 @@ $(function () {
 
     $search.on("input keyup", handleSearch);
 
-    // Клик/выбор подсказки
+
     $suggest.on("click keydown", ".suggest-item", function (e) {
         if (e.type === "click" || (e.type === "keydown" && (e.key === "Enter" || e.key === " "))) {
             const txt = $(this).text();
@@ -81,9 +77,7 @@ $(function () {
         }
     });
 
-    /* =========================
-       Task 5: Animated counters
-    ========================== */
+
     const animateCounter = ($el) => {
         const target = parseInt($el.attr("data-count"), 10) || 0;
         const duration = 1200; // ms
@@ -100,9 +94,7 @@ $(function () {
 
     $(".stat-num").each(function () { animateCounter($(this)); });
 
-    /* =========================
-       Task 6: Submit spinner
-    ========================== */
+
     const $form = $("#demoForm");
     const $btn = $("#submitBtn");
     const $btnText = $btn.find(".btn-text");
@@ -111,11 +103,11 @@ $(function () {
         e.preventDefault();
         if (!$form[0].checkValidity()) return;
 
-        // блокируем и показываем спиннер
+
         $btn.prop("disabled", true).addClass("loading");
         $btnText.text("Please wait...");
 
-        // имитация запроса
+
         setTimeout(() => {
             $btn.prop("disabled", false).removeClass("loading");
             $btnText.text("Submit");
@@ -124,9 +116,7 @@ $(function () {
         }, 1600);
     });
 
-    /* =========================
-       Task 7: Toast notifications
-    ========================== */
+
     const $toastWrap = $("#toastContainer");
     function toast(message = "Done", timeout = 2200) {
         const $t = $(
