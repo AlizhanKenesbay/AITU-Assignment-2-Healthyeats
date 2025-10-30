@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="assets/about-style.css">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="assets/about-style.css">
     <link rel="shortcut icon" href="assets/img/main/healthyeats-logo.png" type="image/x-icon">
@@ -8,8 +9,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@700&family=Montserrat:wght@300;500;600;700&family=Varta:wght@300;600;700&display=swap" rel="stylesheet">
     <title>Healthyeats</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="assets/js/app.js"></script>
+
 </head>
 <body>
+    <div id="scrollProgress"></div>
     <header class="header">
         <div class="container">
             <div class="header__inner">
@@ -58,32 +63,27 @@
             </div>
         </div>
 
-        <section class="stats">
-            <div class="statswrapper">
-                <div class="statscard">
-                    <div class="statsinfo">
-                        <h2 class="statsnumber">+12.000</h2>
-                        <span class="statslabel">Happy clients</span>
-                    </div>
-                    <div class="statscircle"></div>
-                </div>
-                <div class="statscard">
-                    <div class="statsinfo">
-                        <h2 class="statsnumber">550</h2>
-                        <span class="statslabel">Orders everyday</span>
-                    </div>
-                    <div class="statscircle"></div>
-                </div>
-                <div class="statscard">
-                    <div class="statsinfo">
-                        <h2 class="statsnumber">300</h2>
-                        <span class="statslabel">Recipes</span>
-                    </div>
-                    <div class="statscircle"></div>
-                </div>
-            </div>
-        </section>
+        <section class="stats-new">
+  <div class="stats-new__grid">
+    <div class="stats-new__card">
+      <div class="stats-new__number">
+        <span class="count-up" data-target="12000">0</span><span class="unit">+</span>
+      </div>
+      <div class="stats-new__label">Happy clients</div>
+    </div>
 
+    <div class="stats-new__card">
+      <div class="stats-new__number"><span class="count-up" data-target="550">0</span></div>
+      <div class="stats-new__label">Orders everyday</div>
+    </div>
+
+    <div class="stats-new__card">
+      <div class="stats-new__number"><span class="count-up" data-target="300">0</span></div>
+      <div class="stats-new__label">Recipes</div>
+    </div>
+  </div>
+</section>
+        
         <div class="video">
             <div class="video_inner">
                 <h1 class="video_title">You can watch cooking process translation!</h1>
@@ -183,5 +183,67 @@
             </div>
         </div>
     </footer>
+    <script>
+$(function () {
+  function startOne($el){
+    var target = parseInt($el.data('target'),10) || 0;
+    var dur = 1200, start = null;
+    function step(t){
+      if(!start) start = t;
+      var p = Math.min(1, (t - start) / dur);
+      $el.text(Math.floor(p * target).toLocaleString());
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting && !$(e.target).data('started')) {
+          $(e.target).data('started', true);
+          startOne($(e.target));
+        }
+      });
+    }, { threshold: 0.1 });
+    $('.count-up').each(function(_,el){ io.observe(el); });
+  } else {
+    $('.count-up').each(function(){ startOne($(this)); });
+  }
+});
+</script>
+<script>
+$(function(){
+  var $c = $('.count-up');
+  if(!$c.length) return;
+
+  function inView(el){
+    var r = el.getBoundingClientRect();
+    return r.top < (window.innerHeight * 0.9) && r.bottom > 0;
+  }
+
+  function animate($el){
+    var target = +($el.data('target')||0);
+    var start = performance.now(), dur = 1200;
+    function tick(t){
+      var p = Math.min(1, (t - start) / dur);
+      $el.text(Math.floor(p * target).toLocaleString());
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function check(){
+    $c.each(function(){
+      var $el = $(this);
+      if ($el.data('done')) return;
+      if (inView(this)) { $el.data('done',1); animate($el); }
+    });
+  }
+
+  check();
+  $(window).on('scroll resize', check);
+});
+</script>
 </body>
 </html>

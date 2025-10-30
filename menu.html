@@ -8,8 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@700&family=Montserrat:wght@300;500;600;700&family=Varta:wght@300;600;700&display=swap" rel="stylesheet">
     <title>Healthyeats</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="assets/js/app.js?v=7"></script>
 </head>
 <body>
+    <div id="scrollProgress"></div>
     <header class="header">
         <div class="container">
             <div class="header__inner">
@@ -42,6 +45,27 @@
                 </div>
             </div>
         </div>
+        
+   
+<div class="search-wrap with-icon search-inline" style="max-width:920px;margin:24px auto;padding:0 16px;display:flex;align-items:center;gap:12px;">
+  <span class="search-ico" aria-hidden="true" style="position:relative;left:36px;color:#777;opacity:.7">
+    <svg viewBox="0 0 24 24" width="20" height="20">
+      <path fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.71.71l.27.28v.79l5 5 1.5-1.5-5-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.51 4.51 0 0 1 9.5 14z"/>
+    </svg>
+  </span>
+
+  <input id="liveSearch" type="text" placeholder="Search dishes..."
+         autocomplete="off"
+         style="flex:1;height:52px;padding:10px 14px 10px 48px;border:2px solid #3d66e3;border-radius:14px;font-size:18px;">
+
+  <button type="button" class="search-btn"
+          style="height:52px;padding:0 18px;border:2px solid #3d66e3;border-radius:14px;background:#3d66e3;color:#fff;font-weight:700;cursor:pointer;">
+    Search
+  </button>
+
+  <div id="searchHints" class="suggestions" style="position:absolute;left:16px;right:16px;top:86px;display:none;background:#fff;border:1px solid #ddd;border-radius:10px;overflow:hidden;z-index:20"></div>
+  <p id="noResults" style="display:none;margin:8px 0;">Nothing found</p>
+</div>
 
         <div class="menu">
             <div class="menutitle">Breakfast</div>
@@ -444,16 +468,20 @@
                 </div>
             </div>
         </div>
-
+        
         <div class="consultation_inner">
             <div class="consultation-search">
-                <input type="text" class="consultation-search-input" placeholder="Email">
-                <form action="#">
-                    <button class="consultation-search-button" type="submit">Send</button>
-                </form>
-            </div>
+                <form class="needs-spinner" action="#">
+                    <input type="email" class="consultation-search-input" placeholder="Email" required>
+                    <button class="consultation-search-button btn-submit" type="submit">
+                        <span class="btn-text">Send</span>
+                        <span class="btn-spin" style="display:none;"></span>
+                     </button>
+                    </form>
+                </div>
+
             <h2 class="consultation_inner__text">
-                If you have questions, plese fill out the form and we will call you back!
+                If you have questions, please fill out the form and we will call you back!
             </h2>
         </div>
     </main>
@@ -532,5 +560,55 @@
             </div>
         </div>
     </footer>
+    <script>
+  // если jQuery не подгружен в <head>, подключи его там; этот скрипт использует уже загруженный jQuery
+  (function(){
+    function ready(fn){ if(document.readyState!=='loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
+
+    ready(function(){
+      if (!window.jQuery){ console.error('jQuery is not loaded'); return; }
+
+      var $input  = $('#liveSearch');
+      var $btn    = $('.search-btn');
+      var $cards  = $('.menu .items .item');            // все карточки
+      var titleSel= '.itemname';                         // заголовок блюда
+      var $titles = $cards.find(titleSel);
+
+      if (!$input.length){ console.error('No #liveSearch'); return; }
+      if (!$cards.length){ console.error('No .menu .items .item'); return; }
+      if (!$titles.length){ titleSel='h3'; $titles=$cards.find('h3'); }
+
+      $titles.each(function(){ $(this).data('orig', $(this).text()); });
+
+      function apply(q){
+        q = (q||'').trim().toLowerCase();
+        var any=false;
+
+        $cards.each(function(){
+          var $t   = $(this).find(titleSel).first();
+          var raw  = $t.data('orig') || $t.text();
+          var txt  = raw.toLowerCase();
+          var show = !q || txt.indexOf(q) > -1;
+          $(this).toggle(show);
+          if(show) any=true;
+
+          if(!q){ $t.html(raw); }
+          else{
+            var esc = q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+            $t.html(raw.replace(new RegExp('('+esc+')','ig'), '<mark>$1</mark>'));
+          }
+        });
+
+        $('#noResults').toggle(!any);
+      }
+
+      $btn.on('click', function(){ apply($input.val()); });
+      $input.on('keydown', function(e){ if(e.key==='Enter'){ e.preventDefault(); apply(this.value); }});
+      $input.on('input', function(){ apply(this.value); }); // можно убрать, если нужен поиск только по кнопке
+
+      apply('');
+    });
+  })();
+</script>
 </body>
 </html>
