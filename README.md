@@ -1,7 +1,7 @@
 **Group:** Web Money
-**Members:** Alizhan K. Arman M. Aset O. Almukhammed A.
+**Members:** Almukhammed A, Arman M, Aset O
 
 SE-2411  
 
 ## 🔗 Published Webpage
-[Our Webpage](https://alizhankenesbay.github.io/AITU-Assignment-2-Healthyeats/main.html)
+[Our Webpage](file:///Users/almukhammedamantay/Downloads/AITU-Assignment-2-Healthyeats-main-3/menu.html)
