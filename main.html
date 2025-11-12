@@ -9,11 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@700&family=Montserrat:wght@300;500;600;700&family=Varta:wght@300;600;700&display=swap" rel="stylesheet">
     <title>Healthyeats</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="assets/js/app.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="scrollProgress"></div>
     <header class="header">
         <div class="container">
             <div class="header-inner">
@@ -34,6 +32,7 @@
                     <img class="header__contact_img" src="assets/img/main/contact.png" alt="phone contact" class="contact-img">
                     <h1 class="header__contact_title">8 000 00 00</h1>
                 </a>
+                </nav>
             </div>
         </div>
     </header>
@@ -42,30 +41,16 @@
         <div class="spec-recipe">
             <div class="spec-recipe_inner">
                 <h1 class="spec-recipe__title">
-                    Poke bowl
-                </h1>
-                <div class="characteristic">
-                    <div class="characteristic__item">
-                        <h4 class="characteristic__title">Calories</h4>
-                        <p class="characteristic__text">300 kcal</p>
-                    </div>
-                    <div class="characteristic__item">
-                        <h4 class="characteristic__title">Fats</h4>
-                        <p class="characteristic__text">13g</p>
-                    </div>
-                    <div class="characteristic__item">
-                        <h4 class="characteristic__title">Protein</h4>
-                        <p class="characteristic__text">20g</p>
-                    </div>
-                </div>
-                <h2 class="spec-recipe__subtitle">
-                    Healthy protein infused with 
-                    Japanese inspired flavors for a 
-                    delicious gourmet meal.
-                </h2>
-                <a class="spec-recipe__button" href="#">15 $ Buy Now</a>
-            </div>
-            <div class="ellipse">
+                    Signature dishes from the chef
+                </h1> 
+                <div class="menu-item">
+    <h2 class="menu-item-title">POKE BOWL</h2>
+    <div class="menu-item-details">
+        <p class="menu-item-description">Healthy protein infused with Japanese inspired flavors for a delicious gourmet meal.</p>
+        <p class="menu-item-nutrition">Calories: 300 kcal | Fats: 13g | Protein: 20g</p>
+    </div>
+    <button class="buy-now-btn" id="buy-now">$15 BUY NOW</button>
+</div>
                 <img src="assets/img/main/PokeBowl.png" alt="">
             </div>
             <div class="spec-recipe_right-element">
@@ -92,21 +77,43 @@
             </div>
         </div>
 
-        <div class="ration">
-            <div class="ration_bar">
-                <h1 class="ration_bar__title">Choose a ration for yourself</h1>
-                <div class="ration_bar__buttons">
-                    <a class="ration_bar__button_item" href="#">
-                        <div class="button_item__text">Sex</div>
-                    </a>
-                    <a class="ration_bar__button_item" href="#">
-                        <div class="button_item__text">Size</div>
-                    </a>
-                    <a class="ration_bar__button_item" href="#">
-                        <div class="button_item__text">Type</div>
-                    </a>
-                </div>
+ <main>
+        <div class="ration-selection">
+            <h2>Choose a ration for yourself</h2>
+            <form id="ration-form">
+                <select id="gender" name="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <select id="size" name="size">
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                </select>
+                <select id="type" name="type">
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="non-vegetarian">Non-Vegetarian</option>
+                </select>
+                <button type="button" id="show-dish">Show the Dish</button>
+            </form>
+
+            <div id="dish-container">
+               
             </div>
+        </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-head">
+            <a href="./main.html" class="footer__logo">
+                <img class="logo_img" src="assets/img/main/healthyeats-logo.png" alt="logo">
+                <h1 class="logo_title">healthyeats</h1>
+            </a>
+        </div>
+    </footer>
+
+    </main>
             <div class="ration_inner">
                 <div class="ratio_inner__item">
                     <h1 class="ration_inner__item-text">Breakfast</h1>
@@ -260,36 +267,45 @@
             </div>
         </div>
 
-        <div class="video">
-            <div class="video_inner">
-                <h1 class="video_title">You can watch cooking process translation!</h1>
-                <a href="https://www.youtube.com/embed/MMannUSmHeg?si=egGrcO7Lg6X9-uhb" class="video_button transition">Play Video</a>
-            </div>
-            <div class="video_block">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/MMannUSmHeg?si=egGrcO7Lg6X9-uhb" title="YouTube video player" 
-                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <div class="video-container">
+    <p class="video-title">YOU CAN WATCH COOKING PROCESS TRANSLATION!</p>
+    <a href="https://www.youtube.com/watch?v=MMannUSmHeg" target="_blank" class="video-thumbnail">
+        <img src="https://img.youtube.com/vi/MMannUSmHeg/maxresdefault.jpg" alt="Cooking Process Video" class="thumbnail-img">
+        <div class="play-button"></div>
+    </a>
+    <a href="https://www.youtube.com/watch?v=MMannUSmHeg" class="play-video-button">Play Video</a>
+</div>
+
+  <div class="consultation">
+    <div class="consultation-container">
+        <h1 class="consultation_title"></h1>
+        <div class="consultation_inner">
+            <p class="consultation-description">If you have any questions, you can fill out this form</p>
+            
+            <div class="contact-form-container">
+                <h2>Contact Us</h2>
+                <form id="contact-form" action="#" method="post" class="contact-form">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+
+                    <button type="submit" class="send-btn">Send</button>
+                </form>
+                <p id="success-message" style="display:none; color:green;">Your question has been sent!</p>
             </div>
         </div>
-
-        <div class="consultation">
-            <div class="consultation-container">
-                <h1 class="consultation_title">Questions?</h1>
-                <div class="consultation_inner">
-                    <form class="consultation-search" action="#">
-                        <input type="text" class="consultation-search-input" placeholder="Email">
-                        <button class="consultation-search-button" type="submit">Send</button>
-                    </form>
-                    <h2 class="consultation_inner__text">
-                        If you have questions, please fill out the form and we will call you back!
-                    </h2>
-                </div>
-                <h1 class="consultation_second-title">
-                    Need a free consultation?
-                </h1>
+    </div>
+</div>
             </div>
         </div>
     </main>
+
+
 
     <footer class="footer">
         <div class="footer-head">
@@ -358,12 +374,119 @@
             </div>
         </div>
 
-        <div class="footer-copyright">
-            <hr class="line">
-            <div class="footer-copyright_text">
-                Assignment 2, SE-2411, website made by Alizhan, Arman, Aset, Almukhamed
-            </div>
-        </div>
+        
     </footer>
+
+    
+    <script src="assets/js/formValidation.js"></script>
+<script src="assets/js/accordion.js"></script>
+<script src="assets/js/popup.js"></script>
+<script src="assets/js/changeBackground.js"></script>
+<script src="assets/js/dateTime.js"></script>
+  <script>
+       
+        const buyNowButton = document.getElementById('buy-now');
+
+      
+        buyNowButton.addEventListener('click', function() {
+            alert('Item added to cart!');
+            
+        });
+    </script>
+
+ <script>
+     
+        const dishes = [
+            {
+                name: "Gruyère, Spinach Scrambled Eggs",
+                description: "A few add-ins make this breakfast staple feel fancy.",
+                category: "Breakfast",
+                vegetarian: true
+            },
+            {
+                name: "Tropical Smoothie Bowl",
+                description: "Top this fruity smoothie with chopped almonds, shredded coconut and blueberries.",
+                category: "Breakfast",
+                vegetarian: true
+            },
+            {
+                name: "Chicken Salad",
+                description: "This healthy chicken salad is packed with protein and flavor.",
+                category: "Lunch",
+                vegetarian: false
+            },
+            {
+                name: "Beef Stew",
+                description: "A hearty and filling beef stew with tender meat and vegetables.",
+                category: "Dinner",
+                vegetarian: false
+            },
+            {
+                name: "Veggie Stir Fry",
+                description: "Stir-fried vegetables with a savory soy sauce, perfect for vegetarians.",
+                category: "Dinner",
+                vegetarian: true
+            },
+            {
+                name: "Grilled Chicken",
+                description: "Succulent grilled chicken served with a fresh side salad.",
+                category: "Dinner",
+                vegetarian: false
+            }
+        ];
+
+        const showDishButton = document.getElementById('show-dish');
+        const dishContainer = document.getElementById('dish-container');
+
+        showDishButton.addEventListener('click', () => {
+            const gender = document.getElementById('gender').value;
+            const size = document.getElementById('size').value;
+            const type = document.getElementById('type').value;
+
+           
+            dishContainer.innerHTML = '';
+
+            
+            const filteredDishes = dishes.filter(dish => {
+                const matchType = (type === 'vegetarian' && dish.vegetarian) || (type === 'non-vegetarian' && !dish.vegetarian);
+                return matchType;
+            });
+
+          
+            if (filteredDishes.length > 0) {
+                filteredDishes.forEach(dish => {
+                    const dishElement = document.createElement('div');
+                    dishElement.classList.add('dish');
+                    dishElement.innerHTML = `
+                        <h3>${dish.name}</h3>
+                        <p>${dish.description}</p>
+                    `;
+                    dishContainer.appendChild(dishElement);
+                });
+            } else {
+                dishContainer.innerHTML = '<p>No dish found for your selection.</p>';
+            }
+        });
+    </script>
+
+    <script>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        
+        if (name && email && message) {
+            
+            document.getElementById('success-message').style.display = 'block';
+
+            
+            document.getElementById('contact-form').reset();
+        }
+    });
+</script>
 </body>
 </html>

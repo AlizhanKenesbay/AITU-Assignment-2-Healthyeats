@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="assets/about-style.css">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="assets/about-style.css">
     <link rel="shortcut icon" href="assets/img/main/healthyeats-logo.png" type="image/x-icon">
@@ -9,12 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@700&family=Montserrat:wght@300;500;600;700&family=Varta:wght@300;600;700&display=swap" rel="stylesheet">
     <title>Healthyeats</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="assets/js/app.js"></script>
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div id="scrollProgress"></div>
     <header class="header">
         <div class="container">
             <div class="header__inner">
@@ -22,6 +18,9 @@
                     <img class="logo_img" src="assets/img/main/healthyeats-logo.png" alt="logo">
                     <h1 class="logo_title">healthyeats</h1>
                 </a>
+
+                 <button id="themeToggle" class="theme-btn">🌙</button>
+                
                 <nav class="nav">
                     <a href="./about.html" class="nav__link"><span>About</span></a>
                     <a href="./menu.html" class="nav__link">Menu</a>
@@ -31,6 +30,11 @@
                     <a href="./gallery.html" class="nav__link">Gallery</a>
                     <a href="./team.html" class="nav__link">Team</a>
                 </nav>
+                <div class="burger" id="burger">
+                <div class="burger-bar"></div>
+                <div class="burger-bar"></div>
+                <div class="burger-bar"></div>
+            </div>
             </div>
         </div>
     </header>
@@ -63,52 +67,31 @@
             </div>
         </div>
 
-        <section class="stats-new">
-  <div class="stats-new__grid">
-    <div class="stats-new__card">
-      <div class="stats-new__number">
-        <span class="count-up" data-target="12000">0</span><span class="unit">+</span>
-      </div>
-      <div class="stats-new__label">Happy clients</div>
+     <div class="counter-container">
+    <div class="counter" data-target="12000">
+        <p>0</p>
+        <span>Happy clients</span>
     </div>
-
-    <div class="stats-new__card">
-      <div class="stats-new__number"><span class="count-up" data-target="550">0</span></div>
-      <div class="stats-new__label">Orders everyday</div>
+    <div class="counter" data-target="550">
+        <p>0</p>
+        <span>Orders everyday</span>
     </div>
-
-    <div class="stats-new__card">
-      <div class="stats-new__number"><span class="count-up" data-target="300">0</span></div>
-      <div class="stats-new__label">Recipes</div>
+    <div class="counter" data-target="300">
+        <p>0</p>
+        <span>Recipes</span>
     </div>
-  </div>
-</section>
-        
-        <div class="video">
-            <div class="video_inner">
-                <h1 class="video_title">You can watch cooking process translation!</h1>
-                <a href="https://www.youtube.com/embed/MMannUSmHeg?si=egGrcO7Lg6X9-uhb" class="video_button transition">Play Video</a>
-            </div>
-            <div class="video_block">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/MMannUSmHeg?si=egGrcO7Lg6X9-uhb" title="YouTube video player" 
-                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-        </div>
+</div>
+      <div class="video-container">
+    <p class="video-title">YOU CAN WATCH COOKING PROCESS TRANSLATION!</p>
+    <a href="https://www.youtube.com/watch?v=MMannUSmHeg" target="_blank" class="video-thumbnail">
+        <img src="https://img.youtube.com/vi/MMannUSmHeg/maxresdefault.jpg" alt="Cooking Process Video" class="thumbnail-img">
+        <div class="play-button"></div>
+    </a>
+    <a href="https://www.youtube.com/watch?v=MMannUSmHeg" class="play-video-button">Play Video</a>
+</div>
 
-        <div class="consultation_inner">
-            <div class="consultation-search">
-                <input type="text" class="consultation-search-input" placeholder="Email">
-                <form action="#">
-                    <button class="consultation-search-button" type="submit">Send</button>
-                </form>
-            </div>
-            <h2 class="consultation_inner__text">
-                If you have questions, plese fill out the form and we will call you back!
-            </h2>
-        </div>
+    
     </main>
-
     <footer class="footer">
         <div class="footer-head">
             <a href="./main.html" class="footer__logo">
@@ -158,92 +141,39 @@
                 </ul>
             </div>
 
-            <div class="contact">
-                <h1 class="contact_title">Contact us</h1>
-                <a class="contact_number" href="tel:+80000000">
-                    <img class="contact__icon" src="assets/img/main/phone.png" alt="phone icon">
-                    <h1 class="contact_text">8 000 00 00</h1>
-                </a>
-                <div class="work_time">
-                    <img class="work_time__icon" src="assets/img/main/clock.png" alt="clock icon">
-                    <div class="work_times">
-                        <div class="work_time__day-of-week">Monday - Friday</div>
-                        <div class="work_time__hour">9 a.m - 6 p.m</div>
-                        <div class="work_time__day-of-week">Saturday</div>
-                        <div class="work_time__hour">10 a.m - 4 p.m</div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="footer-copyright">
-            <hr class="line">
-            <div class="footer-copyright_text">
-                Assignment 2, SE-2411, website made by Alizhan, Arman, Aset, Almukhamed
-            </div>
+
+<div class="contact">
+    <h1 class="contact_title">Contact us</h1>
+    <a class="contact_number" href="tel:+80000000">
+        <img class="contact__icon" src="assets/img/main/phone.png" alt="phone icon">
+        <h1 class="contact_text">8 000 00 00</h1>
+    </a>
+    <div class="work_time">
+        <img class="work_time__icon" src="assets/img/main/clock.png" alt="clock icon">
+        <div class="work_times">
+            <div class="work_time__day-of-week">Monday - Friday</div>
+            <div class="work_time__hour">9 a.m - 6 p.m</div>
+            <div class="work_time__day-of-week">Saturday</div>
+            <div class="work_time__hour">10 a.m - 4 p.m</div>
         </div>
+    </div>
+</div>
+</div>
+
+        
     </footer>
-    <script>
-$(function () {
-  function startOne($el){
-    var target = parseInt($el.data('target'),10) || 0;
-    var dur = 1200, start = null;
-    function step(t){
-      if(!start) start = t;
-      var p = Math.min(1, (t - start) / dur);
-      $el.text(Math.floor(p * target).toLocaleString());
-      if(p < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
+        <div class="footer-datetime">
+    <p id="dateTime"></p>
+</div>
 
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (e.isIntersecting && !$(e.target).data('started')) {
-          $(e.target).data('started', true);
-          startOne($(e.target));
-        }
-      });
-    }, { threshold: 0.1 });
-    $('.count-up').each(function(_,el){ io.observe(el); });
-  } else {
-    $('.count-up').each(function(){ startOne($(this)); });
-  }
-});
-</script>
-<script>
-$(function(){
-  var $c = $('.count-up');
-  if(!$c.length) return;
-
-  function inView(el){
-    var r = el.getBoundingClientRect();
-    return r.top < (window.innerHeight * 0.9) && r.bottom > 0;
-  }
-
-  function animate($el){
-    var target = +($el.data('target')||0);
-    var start = performance.now(), dur = 1200;
-    function tick(t){
-      var p = Math.min(1, (t - start) / dur);
-      $el.text(Math.floor(p * target).toLocaleString());
-      if (p < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  }
-
-  function check(){
-    $c.each(function(){
-      var $el = $(this);
-      if ($el.data('done')) return;
-      if (inView(this)) { $el.data('done',1); animate($el); }
-    });
-  }
-
-  check();
-  $(window).on('scroll resize', check);
-});
-</script>
+    </footer>
+    <script src="assets/js/formValidation.js"></script>
+<script src="assets/js/accordion.js"></script>
+<script src="assets/js/popup.js"></script>
+<script src="assets/js/changeBackground.js"></script>
+<script src="assets/js/dateTime.js"></script>
+<script src="assets/js/changeBackground.js"></script>
+<script src="assets/js/changeBackground.js"></script>
 </body>
 </html>

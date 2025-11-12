@@ -445,42 +445,164 @@ h1, h2, h3, h4, h5, h6, p{
     line-height: 22px;
     color: rgba(0, 0, 0, 0.5);
 }
-/* красивое поле с иконкой */
-.with-icon { position: relative; }
-.search-input-pretty{
-  width:100%;
-  height:48px;
-  padding:10px 12px 10px 44px; /* место под иконку слева */
-  border:2px solid #2f6ce5;
-  border-radius:12px;
-  font-size:16px;
+
+
+
+.contactus-block {
+  width: 100%;
+  background-color: #f7f7f7;
+  padding: 120px 0;
+  text-align: center;
+  margin-top: 200px;
+  border-top: 2px solid #eaeaea;
 }
-.search-input-pretty:focus{
+
+.contactus-content {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.contactus-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.contactus-text {
+  font-size: 22px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 40px;
+}
+
+.contactus-btn {
+  background-color: #699635;
+  color: #fff;
+  border: none;
+  padding: 18px 60px;
+  border-radius: 70px;
+  cursor: pointer;
+  font-size: 26px;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.contactus-btn:hover {
+  background-color: #7ab13c;
+  transform: scale(1.05);
+}
+
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-content {
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px;
+  width: 400px;
+  text-align: center;
+  position: relative;
+  animation: popup-fade 0.3s ease;
+}
+
+@keyframes popup-fade {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.popup-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #699635;
+  transition: color 0.3s ease;
+}
+
+.popup-close:hover {
+  color: #F2B200;
+}
+
+.popup-input,
+.popup-textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  font-size: 18px;
   outline: none;
-  box-shadow: 0 0 0 4px rgba(47,108,229,.15);
-}
-.search-ico{
-  position:absolute;
-  left:24px;
-  top:50%;
-  transform:translateY(-50%);
-  width:18px; height:18px;
-  color:#666; opacity:.7;
-  pointer-events:none;
 }
 
-/* чтобы подсказки приставали к полю и выглядели аккуратно */
-.suggestions{
-  top:56px; /* чуть ниже поля */
-  border-radius:10px;
-  overflow:hidden;
+.popup-input:focus,
+.popup-textarea:focus {
+  border-color: #699635;
 }
-.suggestion{ padding:10px 12px; }
 
-.search-inline{display:flex;align-items:center;gap:12px;position:relative}
-.search-input-pretty{flex:1}
-.search-btn{
-  height:48px;padding:0 16px;border:2px solid #2f6ce5;border-radius:12px;
-  background:#2f6ce5;color:#fff;font-weight:600;cursor:pointer
+.popup-textarea {
+  height: 120px;
 }
-.search-btn:hover{filter:brightness(1.05)}
+
+.popup-submit {
+  background-color: #F2B200;
+  color: #fff;
+  border: none;
+  padding: 12px 40px;
+  border-radius: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.popup-submit:hover {
+  background-color: #ffc72e;
+}
+
+
+
+#recipes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.recipe {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.recipe img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.recipe h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.recipe a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
